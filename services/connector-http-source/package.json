@@ -1,7 +1,7 @@
 {
   "name": "connector-http-source",
   "version": "0.1.0",
-  "description": "HTTP source connector service for the event streaming platform",
+  "description": "HTTP source connector service for Tideway",
   "main": "dist/server.js",
   "author": "Farid Gurbanov",
   "license": "Proprietary",
@@ -13,7 +13,7 @@
     "test": "node --test --loader ts-node/esm src/server.test.ts"
   },
   "dependencies": {
-    "@event-streaming-platform/connector-core": "file:../../packages/connector-core",
+    "@tideway/connector-core": "file:../../packages/connector-core",
     "express": "^5.1.0",
     "kafkajs": "^2.2.4",
     "pino": "^9.9.0",

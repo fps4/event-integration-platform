@@ -1,7 +1,7 @@
 {
-  "name": "@event-streaming-platform/logging-utils",
+  "name": "@tideway/logging-utils",
   "version": "1.0.1",
-  "description": "Shared logging context helpers for Event Streaming Platform services",
+  "description": "Shared logging context helpers for Tideway services",
   "license": "UNLICENSED",
   "type": "module",
   "main": "dist/index.js",

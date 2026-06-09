@@ -1,8 +1,8 @@
 {
-  "name": "@event-streaming-platform/webapp",
-  "author": "Event Streaming Platform Team",
+  "name": "@tideway/webapp",
+  "author": "Tideway Team",
   "version": "0.0.1",
-  "description": "Control plane webapp for the event streaming platform",
+  "description": "Control plane webapp for Tideway",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3033",

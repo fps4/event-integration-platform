@@ -1,6 +1,6 @@
 # Observability API
 
-REST API service providing workspace-scoped observability features for the Event Streaming Platform.
+REST API service providing workspace-scoped observability features for Tideway.
 
 ## Features
 
@@ -30,7 +30,7 @@ WebApp → observability-api → Loki (log aggregation)
 | `LOKI_URL`                 | `http://localhost:3100`           | Loki base URL                        |
 | `AUTH_JWT_SECRET`          | (required)                        | Shared secret for JWT verification   |
 | `AUTH_JWT_ISSUER`          | `authorizer`                      | Expected JWT issuer                  |
-| `AUTH_JWT_AUDIENCE`        | `event-streaming-platform`        | Expected JWT audience                |
+| `AUTH_JWT_AUDIENCE`        | `tideway`        | Expected JWT audience                |
 | `CORS_ORIGINS`             | (empty = allow all)               | Comma-separated CORS origins         |
 | `LOG_LEVEL`                | `info`                            | Pino log level                       |
 | `LOG_PRETTY`               | `false`                           | Human-readable logs (dev only)       |

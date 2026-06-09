@@ -1,4 +1,4 @@
-# Product Summary: Event Streaming Platform (Kafka)
+# Tideway — Product Summary (Kafka-native)
 
 A delivery blueprint for an **in-house, Kafka-native event streaming and integration platform** where Kafka stays internal-only and teams integrate through APIs and a control plane (configuration over code).
 

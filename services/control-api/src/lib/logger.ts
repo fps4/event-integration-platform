@@ -1,5 +1,5 @@
 import type { Logger } from 'pino';
-import { createLogger, runWithLogContext, mergeLogContext, type LogContext } from '@event-streaming-platform/logging-utils';
+import { createLogger, runWithLogContext, mergeLogContext, type LogContext } from '@tideway/logging-utils';
 
 const enablePretty = process.env.LOG_PRETTY !== 'false' && process.env.LOG_PRETTY !== '0';
 const level = process.env.LOG_LEVEL || 'info';

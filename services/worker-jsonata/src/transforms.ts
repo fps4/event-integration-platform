@@ -1,6 +1,6 @@
 import jsonata from 'jsonata';
 import mongoose from 'mongoose';
-import { makeModels, type JsonataTransformDocument } from '@event-streaming-platform/data-models';
+import { makeModels, type JsonataTransformDocument } from '@tideway/data-models';
 import { logger } from './config.js';
 
 export type TransformRuntime = {

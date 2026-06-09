@@ -1,7 +1,7 @@
 {
-  "name": "@event-streaming-platform/data-models",
+  "name": "@tideway/data-models",
   "version": "0.1.0",
-  "description": "Shared Mongoose schemas and model factories for Event Streaming Platform services",
+  "description": "Shared Mongoose schemas and model factories for Tideway services",
   "license": "UNLICENSED",
   "type": "module",
   "main": "dist/index.cjs",

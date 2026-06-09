@@ -12,7 +12,7 @@ services:
       - broker
       - mongodb
     networks:
-      - event-streaming-platform
+      - tideway
     environment:
       LOG_PRETTY: ${LOG_PRETTY:-false}
       CONTROL_API_PORT: ${CONTROL_API_PORT:-7304}
@@ -40,7 +40,7 @@ services:
     depends_on:
       - mongodb
     networks:
-      - event-streaming-platform
+      - tideway
     environment:
       LOG_PRETTY: ${LOG_PRETTY:-false}
       AUTHORIZER_PORT: ${AUTHORIZER_PORT:-7305}
@@ -56,7 +56,7 @@ services:
     hostname: broker
     container_name: broker
     networks:
-      - event-streaming-platform
+      - tideway
     ports:
       - 9092:9092
     environment:
@@ -82,7 +82,7 @@ services:
     depends_on:
       - broker
     networks:
-      - event-streaming-platform
+      - tideway
     environment:
       PORT: 8085
       NODE_ENV: ${APP_ENV:-development}
@@ -105,7 +105,7 @@ services:
     depends_on:
       - broker
     networks:
-      - event-streaming-platform
+      - tideway
     environment:
       PORT: 8086
       NODE_ENV: ${APP_ENV:-development}
@@ -132,7 +132,7 @@ services:
       - control-api
       - mongodb
     networks:
-      - event-streaming-platform
+      - tideway
     environment:
       NODE_ENV: ${APP_ENV:-development}
       LOG_LEVEL: info
@@ -156,7 +156,7 @@ services:
     depends_on:
       - broker
     networks:
-      - event-streaming-platform
+      - tideway
     environment:
       CONNECT_BOOTSTRAP_SERVERS: broker:9092
       CONNECT_REST_PORT: 8083
@@ -185,7 +185,7 @@ services:
     depends_on:
       - broker
     networks:
-      - event-streaming-platform
+      - tideway
     environment:
       SCHEMA_REGISTRY_HOST_NAME: schema-registry
       SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: PLAINTEXT://broker:9092
@@ -200,7 +200,7 @@ services:
       - broker
       - schema-registry
     networks:
-      - event-streaming-platform
+      - tideway
     environment:
       KSQL_LISTENERS: http://0.0.0.0:8088
       KSQL_BOOTSTRAP_SERVERS: PLAINTEXT://broker:9092
@@ -217,7 +217,7 @@ services:
     ports:
       - 27019:27017
     networks:
-      - event-streaming-platform
+      - tideway
     volumes:
       - mongo_data:/data/db
 
@@ -229,7 +229,7 @@ services:
     ports:
       - "3100:3100"
     networks:
-      - event-streaming-platform
+      - tideway
     volumes:
       - loki-data:/loki
     command: -config.file=/etc/loki/local-config.yaml
@@ -242,7 +242,7 @@ services:
     depends_on:
       - loki
     networks:
-      - event-streaming-platform
+      - tideway
     volumes:
       - /var/log:/var/log:ro
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
@@ -267,7 +267,7 @@ services:
       - mongodb
       - broker
     networks:
-      - event-streaming-platform
+      - tideway
     environment:
       LOG_PRETTY: ${LOG_PRETTY:-false}
       LOG_LEVEL: ${LOG_LEVEL:-info}
@@ -293,7 +293,7 @@ services:
   #   volumes:
   #     - clickhouse_data:/var/lib/clickhouse
   #   networks:
-  #     - event-streaming-platform
+  #     - tideway
 
   # clickhouse-init:
   #   build:
@@ -308,11 +308,11 @@ services:
   #     - clickhouse
   #     - broker
   #   networks:
-  #     - event-streaming-platform
+  #     - tideway
       
 
 networks:
-  event-streaming-platform:
+  tideway:
     driver: bridge
 
 volumes:

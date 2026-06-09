@@ -1,6 +1,6 @@
 import { createAuthorizerCore } from './lib/session.js';
 import { createSessionJwtSigner } from './lib/jwt.js';
-import { makeModels } from '@event-streaming-platform/data-models';
+import { makeModels } from '@tideway/data-models';
 
 import { CONFIG } from './config.js';
 import { getMasterConnection } from './utils/db.js';

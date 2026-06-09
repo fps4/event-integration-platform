@@ -1,4 +1,4 @@
-# Event Streaming Platform — Solution Design
+# Tideway — Solution Design
 
 Companion to [requirements-ux.md](./requirements-ux.md). Component deep-dives live under `solution-design/`.
 

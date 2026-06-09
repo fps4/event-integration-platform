@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { makeModels } from '@event-streaming-platform/data-models';
+import { makeModels } from '@tideway/data-models';
 import { getConnection } from '../lib/db.js';
 import { log, toId } from './helpers.js';
 

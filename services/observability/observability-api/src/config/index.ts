@@ -7,5 +7,5 @@ export const CONFIG = {
   corsOrigins: (process.env.CORS_ORIGINS || '').split(',').map((s) => s.trim()).filter(Boolean),
   jwtSecret: process.env.AUTH_JWT_SECRET || '',
   jwtIssuer: process.env.AUTH_JWT_ISSUER || 'authorizer',
-  jwtAudience: process.env.AUTH_JWT_AUDIENCE || 'event-streaming-platform',
+  jwtAudience: process.env.AUTH_JWT_AUDIENCE || 'tideway',
 } as const;

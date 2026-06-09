@@ -1,6 +1,6 @@
 # control-api
 
-Control plane API for managing workspaces, clients, and users in the event streaming platform.
+Control plane API for managing workspaces, clients, and users in Tideway.
 
 ## Overview
 - Exposes REST endpoints under `/api` for CRUD-style operations.
