@@ -1,6 +1,6 @@
 # Observability
 
-This document describes the end-user observability architecture for the Event Streaming Platform, covering logging, monitoring, tracing, and alerting for product teams using the platform.
+This document describes the end-user observability architecture for Tideway, covering logging, monitoring, tracing, and alerting for product teams using the platform.
 
 ## 1. Design Philosophy
 
@@ -18,7 +18,7 @@ The platform provides **self-service observability** for product teams through:
 
 ### 1.2 Platform Operations
 
-> **Note**: Platform operators (infrastructure teams running the event streaming platform) are expected to use their organization's **centralized observability tooling** (e.g., Datadog, Splunk, ELK stack, Grafana Cloud) for infrastructure monitoring, service health, and incident response. This document focuses on the **product-facing observability features** built into the platform.
+> **Note**: Platform operators (infrastructure teams running Tideway) are expected to use their organization's **centralized observability tooling** (e.g., Datadog, Splunk, ELK stack, Grafana Cloud) for infrastructure monitoring, service health, and incident response. This document focuses on the **product-facing observability features** built into the platform.
 
 ---
 

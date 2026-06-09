@@ -4,7 +4,7 @@ info:
   version: 0.1.0
   description: >
     Control-plane API for managing workspaces, pipelines, connectors, schemas, and observability.
-    Provides resource CRUD and Kafka admin operations for the Event Streaming Platform.
+    Provides resource CRUD and Kafka admin operations for Tideway.
   contact:
     name: Platform Team
 servers:

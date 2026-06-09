@@ -1,5 +1,5 @@
 {
-  "name": "@event-streaming-platform/connector-core",
+  "name": "@tideway/connector-core",
   "version": "0.1.0",
   "description": "Shared HTTP connector primitives for source/sink services",
   "license": "UNLICENSED",

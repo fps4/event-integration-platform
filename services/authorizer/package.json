@@ -1,7 +1,7 @@
 {
   "name": "authorizer-service",
   "version": "0.1.0",
-  "description": "Authorizer service for Event Streaming Platform",
+  "description": "Authorizer service for Tideway",
   "main": "dist/server.js",
   "author": "Farid Gurbanov",
   "license": "Proprietary",
@@ -20,8 +20,8 @@
     "nodemon": "^3.1.10",
     "pino": "^9.9.0",
     "pino-pretty": "^13.1.1",
-    "@event-streaming-platform/data-models": "file:../../packages/data-models",
-    "@event-streaming-platform/logging-utils": "file:../../packages/logging-utils"
+    "@tideway/data-models": "file:../../packages/data-models",
+    "@tideway/logging-utils": "file:../../packages/logging-utils"
   },
   "devDependencies": {
     "typescript": "^5.3.0",
@@ -34,7 +34,7 @@
   "overrides": {},
   "imports": {},
   "_localPackages": {
-    "@event-streaming-platform/data-models": "file:../packages/data-models",
-    "@event-streaming-platform/logging-utils": "file:../packages/logging-utils"
+    "@tideway/data-models": "file:../packages/data-models",
+    "@tideway/logging-utils": "file:../packages/logging-utils"
   }
 }

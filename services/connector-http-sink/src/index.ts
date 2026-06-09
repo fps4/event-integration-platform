@@ -3,7 +3,7 @@ import { setTimeout as wait } from "node:timers/promises";
 import express, { ErrorRequestHandler } from "express";
 import { Kafka, EachMessagePayload, logLevel } from "kafkajs";
 import pino from "pino";
-import { InvalidTopicNameError, validateTopicName } from "@event-streaming-platform/connector-core";
+import { InvalidTopicNameError, validateTopicName } from "@tideway/connector-core";
 import { loadConfigForTest, SinkConfig } from "./test-helpers.js";
 
 declare module "express-serve-static-core" {

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Event Streaming Platform uses a **spec-first, component-based OpenAPI architecture** where shared schemas and components are centralized in `packages/openapi-components`, and each service maintains its own OpenAPI specification that references these shared components.
+Tideway uses a **spec-first, component-based OpenAPI architecture** where shared schemas and components are centralized in `packages/openapi-components`, and each service maintains its own OpenAPI specification that references these shared components.
 
 ## Architecture: Hybrid Approach
 
@@ -236,7 +236,7 @@ Create `docs/openapi/aggregated.yaml` that combines all service specs for unifie
 ```yaml
 openapi: 3.1.0
 info:
-  title: Event Streaming Platform API
+  title: Tideway API
   version: 0.1.0
 servers:
   - url: http://localhost:8080
@@ -281,7 +281,7 @@ Add to `package.json`:
 
 ### Phase 1: Create Shared Components
 - Create `packages/openapi-components/control-api.yaml` with core domain schemas.
-- Document existing `Pipeline`, `Workspace`, `Client`, `User` models from `@event-streaming-platform/data-models`.
+- Document existing `Pipeline`, `Workspace`, `Client`, `User` models from `@tideway/data-models`.
 
 ### Phase 2: Document Existing Services
 - Create `services/control-api/openapi.yaml` documenting all current endpoints.
