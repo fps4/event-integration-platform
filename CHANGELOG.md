@@ -1,60 +1,16 @@
-# Change Log
+# Changelog
+
+All notable changes to this project are documented here. The format is based on
+[Keep a Changelog](https://keepachangelog.com/), and the project aims to follow
+[Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
-### Added - Pipeline Multiple Transformations Support
-- **Data Models**: Pipeline schema now supports multiple transformations
-  - Changed `transform` (single object) to `transforms` (array)
-  - Added `isPaused` field to TransformConfig for pausing individual transformations
-  - Validation enforces unique `targetStream` values across all transformations
-- **Control API**: Enhanced pipeline transformation handling
-  - POST/PUT endpoints now accept `transforms` array instead of `transform` object
-  - Backend validation ensures no duplicate target streams (returns 400 error)
-  - Updated OpenAPI documentation with detailed TransformConfig schema
-- **Documentation**: Updated schemas and API docs
-  - packages/openapi-components/control-api.yaml reflects transforms array
-  - docs/components/data-models.md updated with transforms field description
 
-### Breaking Changes
-- **API**: Pipeline `transform` field replaced with `transforms` array
-  - Old pipelines with `transform` field need migration
-  - Frontend must update to use transforms array
-
-### Added - Pipeline Flow Visualization Enhancements
-- **Webapp**: Interactive drag-and-drop pipeline flow canvas with persistent node positions
-  - Single stream creation with type dropdown (source, sink, dlq, replay)
-  - Column-based auto-positioning: nodes align under action buttons
-  - Draggable nodes with positions saved to MongoDB
-  - Shared node styling system (`shared-node-styles.js`) for consistent appearance
-  - Color-coded stream variants: source (green), sink (blue), dlq (red), replay (orange)
-  - Horizontal left-to-right data flow visualization
-  - Stream caption labels on all node types
-- **Transformation Dialog**: Enhanced configuration options
-  - Type dropdown (currently JSONata only, extensible)
-  - Failure Queue (DLQ) selection (optional)
-  - Source/target stream selection with proper variant filtering
-- **Edge Visualization**: Smart connection logic
-  - Transformation edges automatically connect to correct stream variants
-  - Dashed red lines for failure queue connections
-  - Animated edges for active data flow
-- **Data Models**: Extended Pipeline schema
-  - `nodePositions` field (map of nodeId → {x, y}) for UI layout persistence
-  - `failureQueue` field in TransformConfig for DLQ routing
-  - Stream type enum extended: `source | sink | dlq | replay`
-- **Control API**: Pipeline update endpoint now accepts `nodePositions` field
+### Added
+- Two-plane documentation architecture (Docs + Delivery) with frontmatter, Mermaid diagrams, and immutable ADRs (see [`docs/README.md`](./docs/README.md) and [ADR-0006](./docs/design/decisions/0006-documentation-standard-and-ia.md)).
+- ADRs recording the platform's direction: Apache Flink SQL as the single transformation engine ([ADR-0002](./docs/design/decisions/0002-flink-sql-as-transformation-engine.md)), the web application stack ([ADR-0003](./docs/design/decisions/0003-web-application-stack.md)), the agentic AI assist layer ([ADR-0004](./docs/design/decisions/0004-agentic-capabilities.md)), and Kafka internal-only ([ADR-0005](./docs/design/decisions/0005-kafka-internal-only.md)).
+- Delivery roadmap and backlog covering the Flink transformation core, the web replatform, and agentic services.
 
 ### Changed
-- Stream creation changed from creating pairs (source+sink) to single stream with type selection
-- Action buttons (Add Stream, Add Connector, Add Transformation) now fixed at top, non-draggable
-- All other functions disabled until at least one stream exists
-- Target stream finding logic prefers sink variant for transformation connections
-
-### Fixed
-- Transformation edges now correctly connect to target streams with proper variant detection
-- Node positions persist across page navigation and browser sessions
-
-## [0.0.1] 2026-01-18
-### Initial design
-
-- Define requirements and clarify main components
-- Add CHANGELOG.md to track all changes
-
+- Transformation is centred on **Apache Flink SQL**; JSONata, ksqlDB, and Kafka Streams runtimes are removed from the design.
+- The web application targets Next.js + shadcn/ui + Tailwind, replacing MUI/Emotion and private component packages.
