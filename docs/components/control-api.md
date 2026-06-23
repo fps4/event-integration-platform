@@ -23,7 +23,7 @@ Control-plane API used by UI/automation to power end-user flows (workspaces, pip
 - Jsonata transforms (config for worker-jsonata): `GET /api/workspaces/:id/jsonata-transforms`, `POST /api/workspaces/:id/jsonata-transforms` (versioned expressions mapped to source/target topics, optional schema IDs, status `draft|active|deprecated`).
 
 ## Integration with Other Services
-- **MongoDB (via `@tideway/data-models`)**: uses shared Mongoose models for multi-tenant state:
+- **MongoDB (via `@event-integration-platform/data-models`)**: uses shared Mongoose models for multi-tenant state:
   - `Workspace`: tenants with status and allowed origins.
   - `Client`: global machine identities with secret hash/salt, allowed scopes/topics. Linked to workspaces through pipeline registration (`Pipeline.sourceClients`).
   - `Connection`: external sink destinations (HTTP REST endpoints, S3 buckets) with type-specific config (url/headers for HTTP, bucket/region for S3). Linked to pipelines through `Pipeline.sinkConnections`.

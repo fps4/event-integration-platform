@@ -1,4 +1,4 @@
-import { createLogger } from '@tideway/logging-utils';
+import { createLogger } from '@event-integration-platform/logging-utils';
 
 export type WorkerConfig = {
   brokers: string[];

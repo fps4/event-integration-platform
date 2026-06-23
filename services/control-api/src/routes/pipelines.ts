@@ -1,6 +1,6 @@
 import { randomUUID } from 'crypto';
 import { Router } from 'express';
-import { makeModels } from '@tideway/data-models';
+import { makeModels } from '@event-integration-platform/data-models';
 import { getConnection } from '../lib/db.js';
 import { log, toId } from './helpers.js';
 import { generateUniqueCode } from '../lib/code-generator.js';

@@ -6,7 +6,7 @@ import {
   defaultRetryPolicy,
   InvalidTopicNameError,
   validateTopicName
-} from "@tideway/connector-core";
+} from "@event-integration-platform/connector-core";
 
 declare module "express-serve-static-core" {
   interface ResponseLocals {

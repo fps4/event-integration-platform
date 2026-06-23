@@ -1,10 +1,10 @@
 # connector-http-source
 
-HTTP source connector that accepts JSON over HTTP and forwards payloads to topics managed by Tideway.
+HTTP source connector that accepts JSON over HTTP and forwards payloads to topics managed by Event Integration Platform.
 
 ## Overview
 - Exposes REST API on port `8081` (configurable via `PORT`).
-- Validates topics using `@tideway/connector-core`.
+- Validates topics using `@event-integration-platform/connector-core`.
 - Accepts non-empty JSON objects/arrays; enforces `application/json`.
 - Attaches `x-request-id` on all responses (uses inbound header when provided).
 - Logs accepted ingests and surfaces structured errors.

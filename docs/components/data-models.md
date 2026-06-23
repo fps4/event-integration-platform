@@ -2,7 +2,7 @@
 
 Shared models used by services in [authorizer.md](./authorizer.md) and [control-api.md](./control-api.md); referenced by UI flows in [ui.md](./ui.md).
 
-Shared Mongoose schemas and model factories that all services use for tenant-scoped data. Package name: `@tideway/data-models`.
+Shared Mongoose schemas and model factories that all services use for tenant-scoped data. Package name: `@event-integration-platform/data-models`.
 
 ## What it provides
 - Mongoose schemas and models for `Workspace`, `Pipeline`, `Client`, `Connection`, `User`, `Session`, `Notification`, and `Contact`
@@ -22,7 +22,7 @@ Shared Mongoose schemas and model factories that all services use for tenant-sco
 ## Usage
 ```ts
 import mongoose from 'mongoose';
-import { makeModels } from '@tideway/data-models';
+import { makeModels } from '@event-integration-platform/data-models';
 
 const conn = await mongoose.createConnection(mongoUri).asPromise();
 const models = makeModels(conn);

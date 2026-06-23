@@ -1,7 +1,7 @@
 {
   "name": "connector-http-sink",
   "version": "0.1.0",
-  "description": "HTTP sink connector service for Tideway",
+  "description": "HTTP sink connector service for Event Integration Platform",
   "main": "dist/index.js",
   "author": "Farid Gurbanov",
   "license": "Proprietary",
@@ -13,7 +13,7 @@
     "test": "node --test --loader ts-node/esm src/index.test.ts"
   },
   "dependencies": {
-    "@tideway/connector-core": "file:../../packages/connector-core",
+    "@event-integration-platform/connector-core": "file:../../packages/connector-core",
     "express": "^5.1.0",
     "kafkajs": "^2.2.4",
     "pino": "^9.9.0",

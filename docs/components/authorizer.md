@@ -169,7 +169,7 @@ From the service folder:
 - Build and run: `npm run build && node dist/server.js`
 
 ## Related Components
-- Data models: `@tideway/data-models`
-- Logging utilities: `@tideway/logging-utils`
+- Data models: `@event-integration-platform/data-models`
+- Logging utilities: `@event-integration-platform/logging-utils`
 - Control API: consumes Authorizer-issued JWTs for `/api/*` and relies on user/client registration from this service.
 - Workspace membership model: users can belong to multiple workspaces; first registrant is owner, can promote/demote other users to admin/member; sessions pick an active workspace for authorization.

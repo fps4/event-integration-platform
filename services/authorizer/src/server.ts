@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 
-import { runWithLogContext } from '@tideway/logging-utils';
+import { runWithLogContext } from '@event-integration-platform/logging-utils';
 import { CONFIG } from './config.js';
 import { getMasterConnection } from './utils/db.js';
 import authRoutes from './routes/auth-routes.js';

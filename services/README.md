@@ -43,5 +43,5 @@ High-level guide to platform services and what each one owns. Use this as a quic
 - Custom services should use Schema Registry-aware producers/consumers (`@kafkajs/confluent-schema-registry`) to serialize/deserialize payloads.
 
 ## Data Models Package
-- Shared package `@tideway/data-models` exposing Mongoose schemas/models for `Workspace`, `Client`, `User`, `Session`, `Notification`, `Contact` plus `makeModels(conn)`.
+- Shared package `@event-integration-platform/data-models` exposing Mongoose schemas/models for `Workspace`, `Client`, `User`, `Session`, `Notification`, `Contact` plus `makeModels(conn)`.
 - Used by Authorizer and Control API for consistent tenant-scoped persistence with indexes on status, workspace, and identifiers.

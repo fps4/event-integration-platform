@@ -1,4 +1,4 @@
-import { InvalidTopicNameError, validateTopicName } from "@tideway/connector-core";
+import { InvalidTopicNameError, validateTopicName } from "@event-integration-platform/connector-core";
 
 export type EnvLike = NodeJS.ProcessEnv & {
   HTTP_SINK_TOPICS?: string;
