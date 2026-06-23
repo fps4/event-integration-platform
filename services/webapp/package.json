@@ -1,8 +1,8 @@
 {
-  "name": "@tideway/webapp",
-  "author": "Tideway Team",
+  "name": "@event-integration-platform/webapp",
+  "author": "Event Integration Platform Team",
   "version": "0.0.1",
-  "description": "Control plane webapp for Tideway",
+  "description": "Control plane webapp for Event Integration Platform",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3033",

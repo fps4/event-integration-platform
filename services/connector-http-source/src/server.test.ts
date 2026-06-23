@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import express from "express";
 import request from "supertest";
-import { defaultRetryPolicy, InvalidTopicNameError, validateTopicName } from "@tideway/connector-core";
+import { defaultRetryPolicy, InvalidTopicNameError, validateTopicName } from "@event-integration-platform/connector-core";
 
 // Because server.ts starts the app on import, we recreate an instance of the routes here for isolated testing.
 import { randomUUID } from "node:crypto";

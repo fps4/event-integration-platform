@@ -1,5 +1,5 @@
 {
-  "name": "@tideway/api",
+  "name": "@event-integration-platform/api",
   "version": "0.1.0",
   "main": "dist/server.js",
   "type": "module",
@@ -10,8 +10,8 @@
     "test": "node --test --loader ts-node/esm --test-reporter=spec tests/**/*.test.ts"
   },
   "dependencies": {
-    "@tideway/data-models": "file:../../packages/data-models",
-    "@tideway/logging-utils": "file:../../packages/logging-utils",
+    "@event-integration-platform/data-models": "file:../../packages/data-models",
+    "@event-integration-platform/logging-utils": "file:../../packages/logging-utils",
     "amqplib": "^0.10.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",

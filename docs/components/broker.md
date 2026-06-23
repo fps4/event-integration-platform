@@ -11,7 +11,7 @@ Kafka cluster operated by the platform team; all topics and ACLs are created via
 - Provide DLQ/retry topics per integration with clear ownership.
 
 ## Topic Naming Standard
-- Characters: alphanumerics plus `._-`; max length 249; no `.` or `..` path segments (matches `validateTopicName` from `@tideway/connector-core`).
+- Characters: alphanumerics plus `._-`; max length 249; no `.` or `..` path segments (matches `validateTopicName` from `@event-integration-platform/connector-core`).
 - Pattern (env-scoped, multi-tenant):
   ```
   <env>.<workspace_code>.<pipeline_code>.<stream>.<variant>

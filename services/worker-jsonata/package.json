@@ -1,7 +1,7 @@
 {
   "name": "worker-jsonata",
   "version": "0.1.0",
-  "description": "Jsonata-based transform worker for Tideway",
+  "description": "Jsonata-based transform worker for Event Integration Platform",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
@@ -11,8 +11,8 @@
     "test": "npm run build -- --pretty false && node --test dist/index.test.js"
   },
   "dependencies": {
-    "@tideway/data-models": "file:../../packages/data-models",
-    "@tideway/logging-utils": "file:../../packages/logging-utils",
+    "@event-integration-platform/data-models": "file:../../packages/data-models",
+    "@event-integration-platform/logging-utils": "file:../../packages/logging-utils",
     "jsonata": "^1.8.7",
     "kafkajs": "^2.2.4",
     "mongoose": "^8.18.0",

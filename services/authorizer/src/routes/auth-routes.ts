@@ -1,7 +1,7 @@
 import express from 'express';
 import type { Request, Response } from 'express';
 import { createHmac, timingSafeEqual } from 'crypto';
-import { mergeLogContext } from '@tideway/logging-utils';
+import { mergeLogContext } from '@event-integration-platform/logging-utils';
 import {
   ClientNotFoundError,
   ClientSecretMismatchError,

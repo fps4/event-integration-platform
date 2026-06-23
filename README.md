@@ -1,6 +1,6 @@
-# Tideway — Kafka-native Event Streaming & Integration Platform
+# Event Integration Platform
 
-Tideway is a delivery blueprint for an **in-house, Kafka-native event streaming and integration platform** where Kafka stays internal-only and teams integrate through APIs and a control plane (configuration over code).
+A delivery blueprint for an **in-house, Kafka-native event streaming & integration platform** where Kafka stays internal-only and teams integrate through APIs and a control plane (configuration over code).
 
 ## What it is
 

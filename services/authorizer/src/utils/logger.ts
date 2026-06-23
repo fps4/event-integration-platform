@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createLogger } from '@tideway/logging-utils';
+import { createLogger } from '@event-integration-platform/logging-utils';
 
 const shouldPrettyPrint = (() => {
   const flag = process.env.LOG_PRETTY?.toLowerCase();
