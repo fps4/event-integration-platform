@@ -3,11 +3,12 @@ title: "M1: Flink transformation core"
 summary: Make Apache Flink SQL the single transformation runtime — runtime, control-plane deployer, data-model and API migration, and a SQL transform UI.
 status: proposed
 milestone: M1
-last_updated: 2026-06-23
+last_updated: 2026-06-24
 owners: [platform-team]
 related:
   - docs/design/decisions/0002-flink-sql-as-transformation-engine.md
   - docs/delivery/backlog/EP-01-flink-transformation/README.md
+  - docs/delivery/backlog/EP-01-flink-transformation/US-0103-runnable-flink-demo.md
 ---
 
 # M1: Flink transformation core
@@ -25,6 +26,15 @@ Apache Flink SQL as the single transformation runtime, replacing the JSONata wor
 | Control API `*/flink-transforms` + dry-run validate | (EP-01) |
 | Web app Flink SQL editor with dry-run preview | (EP-01, depends on M2) |
 | Remove `worker-jsonata` / `worker-ksqldb` / `worker-streams` | (EP-01) |
+| Runnable end-to-end demo (stateful statement + custom UDF) + walkthrough guide | [US-0103](../backlog/EP-01-flink-transformation/US-0103-runnable-flink-demo.md) |
+
+## Dependency order
+
+`US-0101` (substrate) → `US-0102` (deployer + `FlinkSqlTransform`) → `US-0103`
+(runnable demo + custom UDF + walkthrough). The demo is the milestone's
+acceptance proof and depends on the prior two; the Control API surface and the
+legacy-worker removal can land in parallel once the substrate is up. The web SQL
+editor trails M2.
 
 ## What it does / does not ship
 
@@ -37,7 +47,7 @@ A pipeline can ingest, transform with Flink SQL, validate against a schema, deli
 
 ## Definition of complete
 
-The JSONata worker is removed; an end-to-end pipeline runs on Flink SQL with dry-run and DLQ; the data model and Control API use `FlinkSqlTransform`/`flink-transforms`.
+The JSONata worker is removed; an end-to-end pipeline runs on Flink SQL with dry-run and DLQ; the data model and Control API use `FlinkSqlTransform`/`flink-transforms`; and the runnable demo ([US-0103](../backlog/EP-01-flink-transformation/US-0103-runnable-flink-demo.md)) drives the full path with a stateful statement and a custom UDF from one command, with a walkthrough guide.
 
 ## Open questions
 
