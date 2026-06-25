@@ -31,7 +31,8 @@ jobs:
       - uses: actions/checkout@v4
       # TODO(product): wire CodeQL or Semgrep for this repo's languages and fail on high severity.
       - name: sast
-        run: echo "TODO: configure SAST (CodeQL/Semgrep) — Principle 4 floor, do not remove this gate"
+        run: |
+          echo "TODO: configure SAST (CodeQL/Semgrep) — Principle 4 floor, do not remove this gate"
 
   dependency-scan: # standards/security.yaml floor — the advisory-DB vuln scan (DISTINCT from the
     # hallucinated-dependency-check below). Trivy filesystem scan, BLOCKING on HIGH,CRITICAL with
@@ -69,7 +70,8 @@ jobs:
       # TODO(product): run your ecosystem's existence/typosquat check (maestro ships dod.hallucinated_deps
       # for pyproject.toml; a JS/Go product wires the equivalent here).
       - name: hallucinated-dependency-check
-        run: echo "TODO: configure the hallucinated-dependency check — Principle 4 floor, do not remove"
+        run: |
+          echo "TODO: configure the hallucinated-dependency check — Principle 4 floor, do not remove"
 
   tests: # spec-adherence + unit/integration (standards/testing.yaml: spec_adherence_tests, US-0014).
     # A green job is the spec-adherence floor the DoD consumer reads; uploads junit for the test_report emitter.
@@ -79,7 +81,8 @@ jobs:
       # TODO(product): install + run this repo's test suite, including the spec-derived tests the test
       # agent commits (US-0014). Emit junit so maestro's test_report artefact emitter can ingest it.
       - name: tests
-        run: echo "TODO: run the test suite with a junit report — spec-adherence floor (US-0014)"
+        run: |
+          echo "TODO: run the test suite with a junit report — spec-adherence floor (US-0014)"
 
   license-sbom: # standards/testing.yaml: license_and_sbom. Emit a CycloneDX JSON SBOM per build.
     runs-on: ubuntu-latest
