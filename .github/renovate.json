@@ -1,0 +1,7 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "labels": ["dependencies"],
+  "vulnerabilityAlerts": { "enabled": true },
+  "comment": "Companion to the DoD dependency-scan floor (US-0002). Tune freely; keep vulnerabilityAlerts on."
+}
