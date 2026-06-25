@@ -1,0 +1,94 @@
+name: dod
+
+# Definition-of-Done floor gates (Principle 4 / ADR-0006). These are the floors that are NEVER
+# disabled (standards/security.yaml, standards/testing.yaml); HOW each is implemented is this
+# product's choice — tune the tools, keep the gates. maestro reads a green run before opening the
+# merge gate (orchestrator/dod.py). Laid down by `maestro bootstrap-dod` (US-0002) as a starting point.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  secret-scan: # standards/security.yaml floor — enforced: always
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: gitleaks
+        uses: docker://ghcr.io/gitleaks/gitleaks:latest
+        with:
+          args: detect --source=/github/workspace --no-banner --redact
+
+  sast: # standards/security.yaml floor — enforced: always. Block on high severity.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # TODO(product): wire CodeQL or Semgrep for this repo's languages and fail on high severity.
+      - name: sast
+        run: echo "TODO: configure SAST (CodeQL/Semgrep) — Principle 4 floor, do not remove this gate"
+
+  dependency-scan: # standards/security.yaml floor — the advisory-DB vuln scan (DISTINCT from the
+    # hallucinated-dependency-check below). Trivy filesystem scan, BLOCKING on HIGH,CRITICAL with
+    # --ignore-unfixed (only actionable advisories gate, so transitive unfixed noise never red-walls a
+    # PR). Scans this repo's declared deps + lockfiles + IaC misconfig — language-agnostic, so it is the
+    # portable floor every product gets. A product that ships an image SHOULD also scan it (`scan-type:
+    # image` against the built tag, cf. maestro's own dod.yml) to catch pinned transitives a lockfile-less
+    # fs scan can't resolve. Tune the surface; keep the gate — Principle 4 floor, never removed.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: cache the trivy vuln DB # warm-start the DB so a registry blip/rate-limit doesn't flake the gate
+        uses: actions/cache@v4
+        with:
+          path: .cache/trivy
+          key: trivy-db
+      - name: trivy filesystem scan (deps, IaC misconfig)
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          exit-code: "1"          # BLOCKING — a fixable HIGH/CRITICAL fails the gate
+          format: table
+        env:
+          TRIVY_CACHE_DIR: .cache/trivy
+
+  hallucinated-dependency-check: # standards/security.yaml floor — DISTINCT from the vuln scan (US-0025)
+    # Verifies every declared dependency EXISTS on its registry and is not a typosquat of a popular
+    # package. A green vuln scan must never mask a hallucinated/typo-squatted package, so it is its own gate.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # TODO(product): run your ecosystem's existence/typosquat check (maestro ships dod.hallucinated_deps
+      # for pyproject.toml; a JS/Go product wires the equivalent here).
+      - name: hallucinated-dependency-check
+        run: echo "TODO: configure the hallucinated-dependency check — Principle 4 floor, do not remove"
+
+  tests: # spec-adherence + unit/integration (standards/testing.yaml: spec_adherence_tests, US-0014).
+    # A green job is the spec-adherence floor the DoD consumer reads; uploads junit for the test_report emitter.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # TODO(product): install + run this repo's test suite, including the spec-derived tests the test
+      # agent commits (US-0014). Emit junit so maestro's test_report artefact emitter can ingest it.
+      - name: tests
+        run: echo "TODO: run the test suite with a junit report — spec-adherence floor (US-0014)"
+
+  license-sbom: # standards/testing.yaml: license_and_sbom. Emit a CycloneDX JSON SBOM per build.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: generate CycloneDX SBOM
+        uses: anchore/sbom-action@v0
+        with:
+          path: .
+          format: cyclonedx-json
+          output-file: sbom.json
+          artifact-name: sbom.json
